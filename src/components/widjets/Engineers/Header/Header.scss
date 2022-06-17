@@ -1,0 +1,55 @@
+header {
+  background-color: #fff;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 15px;
+  img {
+    width: 74px;
+    margin-right: 20px;
+  }
+  h1 {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.header-menu-item {
+  height: 60px;
+  width: 60px;
+  display: block;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0 10px;
+  img {
+    width: 60px;
+  }
+}
+
+
+
+.watch {
+  display: flex;
+}
+
+.time-left,
+.current-date {
+  margin-right: 50px;
+}
+
+.current-date .time,
+.time-left .time {
+  font-size: 25px;
+}
+
+.current-date p,
+.current-date .day,
+.time-left p,
+.time-left .day {
+  font-size: 14px;
+  font-family: 'PTSans', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
