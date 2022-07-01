@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import Engineers from './components/widjets/Engineers';
 import LoginForm from './components/authorization/LoginForm';
+import AdminPanel from './components/adminpanel/AdminPanel'
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
@@ -34,7 +35,10 @@ const App = () => {
     <BrowserRouter history={history}>
       {/* <Engineers /> */}
       <Routes>
-      <Route exact path="/" element={<LoginForm />} />
+        <Route exact path="/" element={<AdminPanel />} />
+        <Route exact path="/aministration" element={<AdminPanel />} />
+        <Route exact path="/login" element={<LoginForm />} />
+        <Route exact path="/widget/engineers" element={<Engineers />} />
       </Routes>
     </BrowserRouter>
   )

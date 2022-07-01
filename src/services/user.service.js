@@ -1,24 +1,29 @@
+import api from './api';
 import axios from "axios";
-import authHeader from "./auth-header";
-const API_URL = "http://localhost:8080/api/test/";
+const API_URL = "http://109.200.155.118:5000/api/v1/";
 
 const getPublicContent = () => {
-  return axios.get(API_URL + 'all');
+  return api.get('/test/all');
 }
 const getUserBoard = () => {
-  return axios.get(API_URL + 'user', { headers: authHeader() });
+  return api.get('/test/user');
 }
 const getModeratorBoard = () => {
-  return axios.get(API_URL + 'mod', { headers: authHeader() });
+  return api.get('/test/mod');
 }
 const getAdminBoard = () => {
-  return axios.get(API_URL + 'admin', { headers: authHeader() });
+  return api.get('/test/admin');
+}
+const getEmployee = () => {
+  return axios.post(API_URL + 'Employee/GetEmployees', { headers:{ "Accept": 'application/json',
+                                                                    "Content-Type": "application/json;charset=utf-8",} })
 }
 
 const UserService = {
   getPublicContent,
   getUserBoard,
   getModeratorBoard,
-  getAdminBoard
+  getAdminBoard,
+  getEmployee
 }
 export default UserService;

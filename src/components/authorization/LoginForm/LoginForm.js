@@ -7,14 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { login } from '../../../actions/auth';
-import { logout } from "../../../actions/auth";
+import { login, logout } from '../../../actions/auth';
 
 const required = (value) => {
   if (!value) {
     return (
       <div className="" role="alert">
-        This field is required!
+        Это поле обязательно!
       </div>
     );
   }
@@ -45,7 +44,7 @@ const LoginForm = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       dispatch(login(username, password))
         .then(() => {
-          console.log('Зареглаись, теперь долдна произойти переадресация');
+          console.log('Зарегались, теперь должна произойти переадресация');
           setLoading(false);
           // props.history.push('/profile');
           // window.location.reload();
@@ -60,6 +59,7 @@ const LoginForm = (props) => {
   const logOut = () => {
     dispatch(logout());
   };
+
   if (isLoggedIn) {
     console.log('Проверили авторизацию, и переадресовываем');
     // navigate('/profile');
