@@ -1,0 +1,78 @@
+[111](internal_numbers)
+callerid="                     " <111>
+secret=aiCh9eed
+
+[112](internal_numbers)
+callerid="                     " <112>
+secret=aiCh9eed
+
+[115](internal_numbers495)
+callerid="                     " <115>
+secret=aiCh9eed
+
+[116](internal_numbers)
+secret=aiCh9eed
+
+[121](internal_numbers)
+callerid="                             " <121>
+secret=aiCh9eed
+
+[122](internal_numbers)
+callerid=" " <122>
+secret=aiCh9eed
+
+[123](internal_numbers)
+callerid="                             " <123>
+secret=aiCh9eed
+
+[124](internal_numbers)
+callerid="                             " <124>
+secret=aiCh9eed
+
+[125](internal_numbers)
+callerid="                         " <125>
+secret=aiCh9eed
+
+[126](internal_numbers495)
+callerid="                                   " <126>
+secret=aiCh9eed
+
+[117](internal_numbers495)
+callerid="                                   " <117>
+secret=aiCh9eed
+
+[127](internal_numbers)
+callerid="                      " <127>
+secret=aiCh9eed
+
+[128](495-only)
+callerid="                           " <128>
+secret=aiCh9eed
+
+[129](internal_numbers)
+callerid="                     " <129>
+secret=aiCh9eed
+
+[130](internal_numbers495)
+callerid="                                   " <130>
+secret=aiCh9eed
+
+[131](internal_numbers495)
+callerid="                             " <131>
+secret=aiCh9eed
+
+[132](internal_numbers495)
+callerid="                           " <132>
+secret=aiCh9eed
+
+[133](internal_numbers495)
+callerid="                                                " <133>
+secret=aiCh9eed
+
+[150](internal_numbers)
+callerid="sipuni" <150>
+secret=Eshee1ae
+
+[311](internal_numbers495)
+callerid="Support" <311>
+secret=aiCh9eed

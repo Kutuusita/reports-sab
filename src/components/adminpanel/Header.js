@@ -1,8 +1,14 @@
-import Icons from "../Icons";
+import Icons from "../common/Icons";
 import { Link } from "react-router-dom";
-import AdminJPG from '../../images/users/admin.jpg';
+import AdminJPG from "../../assets/images/users/admin.jpg";
+import { logout } from "../../redux/actions/auth";
+import { useDispatch } from "react-redux/es/exports";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const logOut = () => {
+    dispatch(logout());
+  };
   return (
     <div className="header">
       <h1>Заголовок страницы</h1>
@@ -11,43 +17,54 @@ const Header = () => {
           <li>
             <Link to="/widget/engineers">
               <Icons
-                  name='flame'
-                  color='#666666'
-                  size='26'
-                  className='button-top-panel'
-                />
+                name="flame"
+                color="#666666"
+                size="26"
+                className="button-top-panel"
+              />
             </Link>
           </li>
           <li>
-             <Icons
-                name='lightning'
-                color='#666666'
-                size='26'
-                className='button-top-panel'
-              />
+            <Icons
+              name="lightning"
+              color="#666666"
+              size="26"
+              className="button-top-panel"
+            />
           </li>
           <li>
-             <Icons
-                name='dark'
-                color='#666666'
-                size='26'
-                className='button-top-panel'
-              />
+            <Icons
+              name="dark"
+              color="#666666"
+              size="26"
+              className="button-top-panel"
+            />
           </li>
           <li>
-             <Icons
-                name='user'
-                color='#666666'
-                size='26'
-                className='button-top-panel'
-              />
+            <Icons
+              name="user"
+              color="#666666"
+              size="26"
+              className="button-top-panel"
+            />
           </li>
           <li>
-             <Icons
-                name='entrance'
-                color='#666666'
-                size='26'
-                className='button-top-panel'
+            <Link to="/login">
+              <Icons
+                name="entrance"
+                color="#666666"
+                size="26"
+                className="button-top-panel"
+              />
+            </Link>
+          </li>
+          <li onClick={logOut}>
+              <Icons
+                name="entrance"
+                color="#666666"
+                size="26"
+                className="button-top-panel"
+
               />
           </li>
           <li>
@@ -58,7 +75,7 @@ const Header = () => {
         </ul>
       </nav>
     </div>
-  )
-}
+  );
+};
 
 export default Header;

@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Gilroy';
-  src: url('./fonts/Gilroy/Gilroy-Regular.woff2');
+  src: url('./assets/fonts/Gilroy/Gilroy-Regular.woff2');
   src: local('Gilroy Regular'), local('Gilroy-Regular'),
-    url('./fonts/Gilroy/Gilroy-Regular.woff2') format('woff2'),
-    url('./fonts/Gilroy/Gilroy-Regular.woff') format('woff'),
-    url('./fonts/Gilroy/Gilroy-Regular.ttf') format('truetype'),
-    url('./fonts/Gilroy/Gilroy-Regular.eot?#iefix') format('embedded-opentype');
+    url('./assets/fonts/Gilroy/Gilroy-Regular.woff2') format('woff2'),
+    url('./assets/fonts/Gilroy/Gilroy-Regular.woff') format('woff'),
+    url('./assets/fonts/Gilroy/Gilroy-Regular.ttf') format('truetype'),
+    url('./assets/fonts/Gilroy/Gilroy-Regular.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap
@@ -13,12 +13,12 @@
 
 @font-face {
   font-family: 'Gilroy';
-  src: url('./fonts/Gilroy/Gilroy-Extrabold.woff2');
+  src: url('./assets/fonts/Gilroy/Gilroy-Extrabold.woff2');
   src: local('Gilroy Extrabold'), local('Gilroy-Extrabold'),
-    url('./fonts/Gilroy/Gilroy-Extrabold.woff2') format('woff2'),
-    url('./fonts/Gilroy/Gilroy-Extrabold.woff') format('woff'),
-    url('./fonts/Gilroy/Gilroy-Extrabold.ttf') format('truetype'),
-    url('./fonts/Gilroy/Gilroy-Extrabold.eot?#iefix') format('embedded-opentype');
+    url('./assets/fonts/Gilroy/Gilroy-Extrabold.woff2') format('woff2'),
+    url('./assets/fonts/Gilroy/Gilroy-Extrabold.woff') format('woff'),
+    url('./assets/fonts/Gilroy/Gilroy-Extrabold.ttf') format('truetype'),
+    url('./assets/fonts/Gilroy/Gilroy-Extrabold.eot?#iefix') format('embedded-opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap
@@ -26,12 +26,12 @@
 
 @font-face {
   font-family: 'PTSans';
-  src: url('./fonts/PTSans/PTSans-Regular.woff2');
+  src: url('./assets/fonts/PTSans/PTSans-Regular.woff2');
   src: local('PT Sans Regular'), local('PTSans-Regular'),
-    url('./fonts/PTSans/PTSans-Regular.woff2') format('woff2'),
-    url('./fonts/PTSans/PTSans-Regular.woff') format('woff'),
-    url('./fonts/PTSans/PTSans-Regular.ttf') format('truetype'),
-    url('./fonts/PTSans/PTSans-Regular.eot?#iefix') format('embedded-opentype');
+    url('./assets/fonts/PTSans/PTSans-Regular.woff2') format('woff2'),
+    url('./assets/fonts/PTSans/PTSans-Regular.woff') format('woff'),
+    url('./assets/fonts/PTSans/PTSans-Regular.ttf') format('truetype'),
+    url('./assets/fonts/PTSans/PTSans-Regular.eot?#iefix') format('embedded-opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap
@@ -39,12 +39,12 @@
 
 @font-face {
   font-family: 'PTSans';
-  src: url('./fonts/PTSans/PTSans-Bold.woff2');
+  src: url('./assets/fonts/PTSans/PTSans-Bold.woff2');
   src: local('PT Sans Bold'), local('PTSans-Bold'),
-    url('./fonts/PTSans/PTSans-Bold.woff2') format('woff2'),
-    url('./fonts/PTSans/PTSans-Bold.woff') format('woff'),
-    url('./fonts/PTSans/PTSans-Bold.ttf') format('truetype'),
-    url('./fonts/PTSans/PTSans-Bold.eot?#iefix') format('embedded-opentype');
+    url('./assets/fonts/PTSans/PTSans-Bold.woff2') format('woff2'),
+    url('./assets/fonts/PTSans/PTSans-Bold.woff') format('woff'),
+    url('./assets/fonts/PTSans/PTSans-Bold.ttf') format('truetype'),
+    url('./assets/fonts/PTSans/PTSans-Bold.eot?#iefix') format('embedded-opentype');
   font-weight: bold;
   font-style: normal;
   font-display: swap
@@ -205,7 +205,7 @@ button {
 }
 .btn-s3 {
 	--btn-text-font-size: 18px;
-	--btn-padding: 9px;
+	--btn-padding: 10px;
 }
 .btn-s4 {
 	--btn-text-font-size: 16px;
@@ -232,86 +232,3 @@ button {
 // Buttons
 
 
-// Fields
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
-textarea {
-	-webkit-backface-visibility: hidden;
-	background: #ffffff;
-	border: solid 1px #c4c4c4;
-	border-radius: 12px;
-	box-sizing: border-box;
-	outline: none;
-	font-size: 18px;
-	padding: 9px;
-	-webkit-appearance: none;
-	outline-offset: 0;
-	color:#666666;
-	width: 100%;
-	max-width: 100%;
-
-	&:focus {
-		border-color: #0073aa;
-		outline: none;
-		color: #000000;
-	}
-}
-
-input[type="search"] {
-	font-size: 25px;
-    border-radius: 48px;
-	padding: 10px 10px 10px 35px;
-	&::-webkit-search-decoration {
-		display: none;
-	}
-	&::-webkit-search-cancel-button {
-		-webkit-appearance: none;
-		/* Now your own custom styles */
-		background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iZGFmODQ1MjktYzgxMC00ZTcyLTg5ODEtNmE1ZjI0OWQ2NDE4IiBkYXRhLW5hbWU9IkxheWVyIDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMzAgMzAiPjx0aXRsZT5hcHAtaWNvbnMtb3B0aW1pc2VkPC90aXRsZT48cGF0aCBkPSJNMjAuNzA2MywxMC42NjlhMC4xOTUsMC4xOTUsMCwwLDAsMC0uMjc1bC0xLjEtMS4xYTAuMTk1LDAuMTk1LDAsMCwwLS4yNzUsMGwtNC4xOTQsNC4xOTM1YTAuMTk1LDAuMTk1LDAsMCwxLS4yNzUsMGwtNC4xOTQtNC4xOTM1YTAuMTk1LDAuMTk1LDAsMCwwLS4yNzUsMGwtMS4xLDEuMWEwLjE5NSwwLjE5NSwwLDAsMCwwLC4yNzVsNC4xOTQsNC4xOTM1YTAuMTk1LDAuMTk1LDAsMCwxLDAsLjI3NUw5LjI5MzcsMTkuMzMxYTAuMTk1LDAuMTk1LDAsMCwwLDAsLjI3NWwxLjEsMS4xYTAuMTk1LDAuMTk1LDAsMCwwLC4yNzUsMGw0LjE5NC00LjE5MzVhMC4xOTUsMC4xOTUsMCwwLDEsLjI3NSwwbDQuMTk0LDQuMTkzNWEwLjE5NSwwLjE5NSwwLDAsMCwuMjc1LDBsMS4xLTEuMWEwLjE5NSwwLjE5NSwwLDAsMCwwLS4yNzVsLTQuMTk0LTQuMTkzNWEwLjE5NSwwLjE5NSwwLDAsMSwwLS4yNzVaIiBzdHlsZT0iZmlsbDojMjcyMzIwOyIvPjwvc3ZnPgo=);
-		// border: 1px solid red;
-		width: 30px;
-		height: 30px;
-		background-size: 30px;
-		background-repeat: no-repeat;
-	}
-}
-
-textarea {
-	width: 100%;
-	max-width: 100%;
-	resize: vertical;
-	height: 100px;
-}
-
-form {
-
-	p {
-		margin: 30px 0 0;
-	}
-
-}
-
-label[aria-hidden=true] {
-	font-size: 0;
-}
-
-.recaptcha-wrap {
-	margin: 30px auto 0;
-    display: inline-block;
-}
-
-// Fields

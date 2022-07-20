@@ -1,5 +1,5 @@
-import Icons from "../Icons";
-import LogoSVG from '../../images/logo.svg';
+import Icons from "../common/Icons";
+import LogoSVG from '../../assets/images/logo.svg';
 import { Component } from "react";
 
 class Sidebar extends Component {

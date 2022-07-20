@@ -2,22 +2,16 @@ import './LoginForm.scss';
 
 import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { login, logout } from '../../../actions/auth';
+import { required } from '../../../helpers/validators/validators';
+import { login, logout } from '../../../redux/actions/auth';
 
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="" role="alert">
-        Это поле обязательно!
-      </div>
-    );
-  }
-};
+import md5 from 'md5';
+import { useEffect } from 'react';
 
 const LoginForm = (props) => {
   const form = useRef();
@@ -25,10 +19,13 @@ const LoginForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { isLoggedIn } = useSelector(state => state.auth);
+
+  const { isLoggedIn, currentUser } = useSelector(state => state.auth);
   const { message } = useSelector(state => state.message);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const onChangeUsername = (e) => {
     const username = e.target.value;
     setUsername(username);
@@ -39,15 +36,15 @@ const LoginForm = (props) => {
   }
   const handleLogin = (e) => {
     e.preventDefault();
+
     setLoading(true);
+
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(login(username, password))
+      dispatch(login(username, md5(password)))
         .then(() => {
-          console.log('Зарегались, теперь должна произойти переадресация');
           setLoading(false);
-          // props.history.push('/profile');
-          // window.location.reload();
+          navigate('/');
         })
         .catch(() => {
           setLoading(false);
@@ -56,25 +53,31 @@ const LoginForm = (props) => {
       setLoading(false)
     }
   };
-  const logOut = () => {
-    dispatch(logout());
-  };
 
-  if (isLoggedIn) {
-    console.log('Проверили авторизацию, и переадресовываем');
-    // navigate('/profile');
-  } else {
-    console.log('Не авторизованы', isLoggedIn);
-  }
+  useEffect(() => {
+    if (isLoggedIn) {
+      switch(currentUser.role){
+        case 'Admin':
+          navigate('/');
+          break;
+        case 'Engineer':
+          navigate('/widget/engineers');
+          break;
+        case 'Manager':
+          navigate('/');
+          break;
+        default:
+          break;
 
-  const isLoggedInMsg = isLoggedIn ? 'авторизован' : 'не авторизован';
+      }
+    }
+  },[isLoggedIn])
+
+
   return (
     <div className="login-page">
       <div className="login-form">
         <div className="login-form__heading heading center">Личный кабинет</div>
-        <div className="center">
-          ({isLoggedInMsg})
-        </div>
         <div className="center">Введите свой логин и пароль для входа в систему!</div>
         <Form onSubmit={handleLogin} ref={form} className="login-form__form">
             <div className="form-group">
@@ -91,6 +94,7 @@ const LoginForm = (props) => {
             <div className="form-group">
               <label htmlFor="password">Пароль*</label>
               <Input
+                autoComplete="on"
                 type="password"
                 className="form-control"
                 name="password"
@@ -99,28 +103,20 @@ const LoginForm = (props) => {
                 validations={[required]}
               />
             </div>
-            <div className="form-group">
-              Запомнить пароль
-            </div>
-            <div className="form-group">
+            <div className="form-group form-group--button">
               <button className="btn btn-s3" disabled={loading}>
-                {loading && (
-                  <span className="">Загрузка</span>
-                )}
-                <span>Войти</span>
+                {
+                loading
+                ? ( <span className="">Загрузка</span> )
+                : ( <span>Войти</span> )
+                }
               </button>
             </div>
-            <div className="form-group">
-              <div className="btn btn-s3" onClick={logOut}>
-                <span>Выйти</span>
-              </div>
-            </div>
             {message && (
-              <div className="form-group">
+
                 <div className="" role="alert">
                   {message}
                 </div>
-              </div>
             )}
             <CheckButton style={{ display: "none" }} ref={checkBtn} />
         </Form>

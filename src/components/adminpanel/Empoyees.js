@@ -1,15 +1,15 @@
-import UserService from '../../services/user.service';
-import {useState} from 'react';
+import UserService from '../../api/user.service';
+import { useDispatch, useSelector } from 'react-redux'
+import {useState, useEffect} from 'react';
 const Empoyees = () => {
-  const [employees, setEmployees] = useState([]);
-  UserService.getEmployee().then(resp => {
-    if (!employees.length)
-      setEmployees(resp.data.employee)
-  });
+  const { employees } = useSelector(state => state.users);
+  const { message } = useSelector(state => state.message);
+  console.log(employees);
   return (
     <div className="employee-list">
       <ul>
-        {employees.map((item, id) => <li key={id}>{item.name} {item.internalPhone} {item.role.name}</li>)}
+        {message}
+        {employees?.map((item, id) => <li key={id}>{item.name} {item.internalPhone} {item.role.name}</li>)}
       </ul>
     </div>
   )

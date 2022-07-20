@@ -1,36 +1,23 @@
 import './admin-panel.scss';
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Navigate } from 'react-router-dom';
-import UserService from "../../services/user.service";
+import { useNavigate } from 'react-router-dom';
+import UserService from "../../api/user.service";
 import Sidebar from './Sidebar';
 import Header from './Header';
 import Empoyees from './Empoyees';
+import EmployeeForm from './EmployeeForm';
 
 const AdminPanel = () => {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useSelector((state) => state.auth);
 
-  const [content, setContent] = useState("");
-  const { user: currentUser } = useSelector((state) => state.auth);
+
   useEffect(() => {
-    UserService.getAdminBoard().then(
-      (response) => {
-        setContent(response.data);
-      },
-      (error) => {
-        const _content =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-          error.message ||
-          error.toString();
-        setContent(_content);
-      }
-    );
-  }, []);
+    !isLoggedIn
+      && navigate('/login');
+  }, [isLoggedIn])
 
-  if (!currentUser) {
-    return <Navigate replace to="/login" />
-  };
 
   return (
     <div className="admin-panel">
@@ -40,6 +27,8 @@ const AdminPanel = () => {
         <div className="content">
           Статистики
           <Empoyees />
+          Форма
+          <EmployeeForm />
         </div>
       </div>
     </div>

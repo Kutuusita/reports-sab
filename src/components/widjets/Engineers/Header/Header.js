@@ -1,14 +1,14 @@
 import "./Header.scss";
 import { useSelector } from "react-redux";
 
-// import i11g from '../../../../images/widget.service/i-1-1-g.svg';
-// import i12g from '../../../../images/widget.service/i-1-2-g.svg';
-import i13g from "../../../../images/widget.service/i-1-3-g.svg";
-// import i14g from '../../../../images/widget.service/i-1-4-g.svg';
-import i11 from "../../../../images/widget.service/i-1-1.svg";
-import i12 from "../../../../images/widget.service/i-1-2.svg";
-// import i13 from '../../../../images/widget.service/i-1-3.svg';
-import i14 from "../../../../images/widget.service/i-1-4.svg";
+// import i11g from '../../../../assets/images/widget.service/i-1-1-g.svg';
+// import i12g from '../../../../assets/images/widget.service/i-1-2-g.svg';
+import i13g from "../../../../assets/images/widget.service/i-1-3-g.svg";
+// import i14g from '../../../../assets/images/widget.service/i-1-4-g.svg';
+import i11 from "../../../../assets/images/widget.service/i-1-1.svg";
+import i12 from "../../../../assets/images/widget.service/i-1-2.svg";
+// import i13 from '../../../../assets/images/widget.service/i-1-3.svg';
+import i14 from "../../../../assets/images/widget.service/i-1-4.svg";
 
 import Clock from "./Clock";
 import { Link } from "react-router-dom";
