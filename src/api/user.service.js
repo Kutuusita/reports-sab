@@ -35,13 +35,15 @@ const userAdmin = {
   "okDeskId": 0
 }
 const addEditEmployee = (userInfo = userAdmin) => {
-  return api.post('Employee/AddEditEmployee', { ...userInfo })
-            .then( resp => {
-              return resp.data;
-            })
-            .catch( err => {
-              console.log(err.code, err.response.data.errors);
-            });
+  
+  console.log(userInfo);
+  // return api.post('Employee/AddEditEmployee', { ...userInfo })
+  //           .then( resp => {
+  //             return resp.data;
+  //           })
+  //           .catch( err => {
+  //             console.log(err.code, err.response.data.errors);
+  //           });
 }
 const restoreEmployee = (id) => {
   return api.post('Employee/RestoreEmployee', {id});

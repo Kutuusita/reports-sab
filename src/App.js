@@ -23,7 +23,7 @@ const App = () => {
     !roles.length && dispatch(setRoles());
   }
 
-  useEffect(() => {
+  useEffect(() => { 
     if (isLoggedIn) {
       init();
     }
@@ -36,7 +36,9 @@ const App = () => {
   });
 
   useEffect(() => {
-    // UserService.addEditEmployee().then((resp) => {
+
+    UserService.addEditEmployee()
+    // .then((resp) => {
     //   dispatch(setEmployees());
     //   console.log(resp);
     // });

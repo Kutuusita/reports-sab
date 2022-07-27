@@ -14,25 +14,68 @@ const EmployeeForm = (props) => {
   const [loading, setLoading] = useState(false);
 
   const { roles } = useSelector(state => state.users);
+  const { employees } = useSelector(state => state.users);
   const { message } = useSelector(state => state.message);
+  const [editedEmployee, setEditedEmployee] = useState(null);
+  
+  const [initialFormValues, setInitialFormValues] = useState({
+    id: null, name: null,
+    color: null,
+    login: null,
+    password: null,
+    roleId: null,
+    active: true,
+    internalPhone: 0,
+    okDeskId: 0
+  });
 
 
   const onSubmit = (formData) => {
+    const {id, name, login, password, roleId, active, internalPhone, okDeskId, color, file} = formData
+    const employeeData = {
+      id, name, login, roleId, active,
+      color: color || null,
+      password: password || null,
+      internalPhone: internalPhone || 0,
+      okDeskId: okDeskId || 0
+    }
     console.log(formData);
   };
+
+  // 
+  const onClickEmployee = (e) => {
+    setEditedEmployee(e.target.getAttribute('data-id'));
+  }
+  // 
+
+  useEffect(() => {
+    if (editedEmployee && employees) {
+      const { id, name, login, role: { id: roleId }, active, color=null, internalPhone, okDeskId } = employees.find(em => em.id === editedEmployee);
+      const editedEmployeeFormData = {
+        id, name, login,
+        roleId, active, color,
+        internalPhone, okDeskId
+      };
+      setInitialFormValues(editedEmployeeFormData)
+    }
+
+  }, [editedEmployee, employees]);
 
   return (
     <Form
       onSubmit={onSubmit}
-      initialValues={{
-        active: true
-      }}
+      initialValues={initialFormValues}
       className="user-form__form"
       render={
       ({ handleSubmit, form, submitting, pristine, values }) => {
         return (
           <form onSubmit={handleSubmit}>
               <div className="title">Создание пользователя</div>
+
+              {/*  */}
+              <div data-id='a8b778d5-ba82-11ec-b7a2-00155dd15706' onClick={onClickEmployee}>Пользователь Медведенко Евгений Михайлович 123 Engineer a8b778d5-ba82-11ec-b7a2-00155dd15706</div>
+              {/*  */}
+
               <div className="form-group">
                 <Field component={Input} type="file" name="file"/>
               </div>
@@ -43,19 +86,19 @@ const EmployeeForm = (props) => {
                 <Field component={Input} type="color" name="color" label="Выбрать цвет" value="#000000"/>
               </div>
               <div className="form-group">
-                <Field component={Input} type="checkbox" name="active" checked={true} className="form-control" label="Активный"/>
+                <Field component={Input} type="checkbox" name="active" className="form-control" label="Активный"/>
               </div>
               <div className="form-group">
-                <Field component={Input} type="text" name="login" className="form-control" label="Логин"  autoComplete="username" validate={required}/>
+                <Field component={Input} type="text" name="login" className="form-control" label="Логин"  autoComplete="username"/>
               </div>
               <div className="form-group">
-                <Field component={Input} type="password" name="password" className="form-control" label="Пароль" autoComplete="new-password" validate={required}/>
+                <Field component={Input} type="password" name="password" className="form-control" label="Пароль" autoComplete="new-password" />
               </div>
               <div className="form-group">
-                <Field component={Input} type="text" name="internalPhone" className="form-control" label="Номер" validate={composeValidators(required, mustBeNumber)}/>
+                <Field component={Input} type="text" name="internalPhone" className="form-control" label="Номер" validate={composeValidators(mustBeNumber)}/>
               </div>
               <div className="form-group">
-                <Field component={Input} type="text" name="okDeskId" className="form-control" label="ID okdesk" validate={required}/>
+                <Field component={Input} type="text" name="okDeskId" className="form-control" label="ID okdesk" />
               </div>
 
 
@@ -79,7 +122,7 @@ const EmployeeForm = (props) => {
                         break;
                     }
                     const icon = <Icons name={role.name} color="#666666" size="28" className="button-top-panel" />;
-                    return <Field key={i} component={Input} type="radio" name="roleId" className="form-control" label={name} value={role.name} validate={required}/>;
+                    return <Field key={i} component={Input} type="radio" name="roleId" className="form-control" label={name} value={role.id} validate={required}/>;
                   })
                 }
               </div>
